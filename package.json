@@ -10,14 +10,19 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:tenet.helloWorld"
+        "onCommand:tenet.enableInversion",
+        "onCommand:tenet.disableInversion"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "tenet.helloWorld",
-				"title": "Hello World"
+				"command": "tenet.enableInversion",
+				"title": "⏳ Enable Inversion"
+			},
+			{
+				"command": "tenet.disableInversion",
+				"title": "⌛️ Disable Inversion"
 			}
 		]
 	},
