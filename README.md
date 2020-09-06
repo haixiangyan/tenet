@@ -2,6 +2,11 @@
 
 A VsCode extension for writing code in the **inversion world** (Just like what happens in the **TENET** 🤪).
 
+## How to use
+
+* Enable: `cmd + shift + p` / `ctrl + shift + p` then select "⏳ Enable Inversion"
+* Disable: `cmd + sfhit + p` / `ctrl + shift + p` then select "⌛️ Disable Inversion"
+
 ## Demo
 
 ![](./images/demo.gif)
