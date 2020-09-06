@@ -10,9 +10,9 @@ const getWholeRange = (document: vscode.TextDocument): vscode.Range => {
 };
 
 const getInvertedText = (text: string, start: number = 1): string => {
-    const breakPosition = text.length - start;
+    const end = start + text.length;
 
-    return text.slice(breakPosition) + text.slice(0, breakPosition);
+    return text.slice(start, end) + text.slice(0, start) + text.slice(end);
 };
 
 const isEmpty = (changes: ReadonlyArray<TextDocumentContentChangeEvent>): boolean => {
@@ -28,8 +28,8 @@ const initInputHook = () => {
 
         if (!editor) {return;}
 
-        const newChars = event.contentChanges[0].text;
-        const invertedText = getInvertedText(event.document.getText(), newChars.length);
+        const changes = event.contentChanges[0];
+        const invertedText = getInvertedText(event.document.getText(), changes.rangeOffset);
         const wholeRange = getWholeRange(event.document);
 
         editor.edit(builder => {
