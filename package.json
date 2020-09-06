@@ -3,6 +3,7 @@
 	"displayName": "tenet",
 	"description": "A VsCode extension for writing code in the inversion world",
 	"version": "0.0.1",
+	"publisher": "HaixiangYan",
 	"engines": {
 		"vscode": "^1.46.0"
 	},
@@ -14,6 +15,7 @@
         "onCommand:tenet.disableInversion"
 	],
 	"main": "./out/extension.js",
+	"repository": "https://github.com/Haixiang6123/tenet",
 	"contributes": {
 		"commands": [
 			{
