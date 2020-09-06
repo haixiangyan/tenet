@@ -9,8 +9,8 @@ const getWholeRange = (document: vscode.TextDocument): vscode.Range => {
     return new vscode.Range(firstLine.range.start, lastLine.range.end);
 };
 
-const getInvertedText = (text: string, start: number = 1): string => {
-    const end = start + text.length;
+export const pickAndInsert = (text: string, pickedText: string, start: number = 1): string => {
+    const end = start + pickedText.length;
 
     return text.slice(start, end) + text.slice(0, start) + text.slice(end);
 };
@@ -29,7 +29,7 @@ const initInputHook = () => {
         if (!editor) {return;}
 
         const changes = event.contentChanges[0];
-        const invertedText = getInvertedText(event.document.getText(), changes.rangeOffset);
+        const invertedText = pickAndInsert(event.document.getText(), changes.text, changes.rangeOffset);
         const wholeRange = getWholeRange(event.document);
 
         editor.edit(builder => {
