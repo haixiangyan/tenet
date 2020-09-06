@@ -2,13 +2,33 @@ import { pickAndInsert } from "../../inputHook";
 import * as assert from "assert";
 
 suite('pickAndInsert', () => {
-	test('can invert the given text', () => {
+	test('can pick middle char and insert into head', () => {
 		const text = 'hello';
 		const pickedText = 'e';
 		const start = 1;
 
 		const result = pickAndInsert(text, pickedText, start);
 
-		assert.notStrictEqual(result, 'ehllo');
+		assert.strictEqual(result, 'ehllo');
+	});
+
+	test('can pick last char and insert into head', () => {
+		const text = 'hello';
+		const pickedText = 'o';
+		const start = text.length - 1;
+
+		const result = pickAndInsert(text, pickedText, start);
+
+		assert.strictEqual(result, 'ohell');
+	});
+
+	test('can pick first char and insert into head', () => {
+		const text = 'hello';
+		const pickedText = 'h';
+		const start = 0;
+
+		const result = pickAndInsert(text, pickedText, start);
+
+		assert.strictEqual(result, 'hello');
 	});
 });
