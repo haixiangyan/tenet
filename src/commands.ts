@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-const IS_INVERSION = 'is_inversion';
+export const IS_INVERSION = 'is_inversion';
 
 const initCommands = (context: vscode.ExtensionContext) => {
 	const enableInversion = vscode.commands.registerCommand('tenet.enableInversion', () => {

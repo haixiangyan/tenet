@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { TextDocumentContentChangeEvent } from 'vscode';
 import {pickAndInsert} from "./utils/string";
+import {IS_INVERSION} from "./commands";
 
 let isEditing = false;
 
@@ -14,8 +15,9 @@ const isEmpty = (changes: ReadonlyArray<TextDocumentContentChangeEvent>): boolea
     return !changes || changes.some(c => !c.text);
 };
 
-const initInputHook = () => {
+const initInputHook = (context: vscode.ExtensionContext) => {
     vscode.workspace.onDidChangeTextDocument(event => {
+        if (!context.globalState.get(IS_INVERSION)) {return;}
         if (isEditing) {return;}
         if (isEmpty(event.contentChanges)) {return;}
 
