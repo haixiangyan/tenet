@@ -1,13 +1,17 @@
 import * as vscode from 'vscode';
 
+const firstPosition = new vscode.Position(0, 0);
+
 const initInputHook = () => {
-    vscode.workspace.onDidChangeTextDocument(evt => {
-        evt.contentChanges.forEach(change => {
+    vscode.workspace.onDidChangeTextDocument(event => {
+        event.contentChanges.forEach(change => {
             if (change.text.length > 30) {
                 return;
             }
 
-            console.log(change.text);
+            const newChar = change.text;
+            
+            vscode.TextEdit.insert(firstPosition, newChar);
         });
     });
 };
