@@ -9,7 +9,7 @@ A VsCode extension for writing code in the **inversion world** (Just like what h
 
 ## Demo
 
-![](./images/demo.gif)
+![](./images/demo-ts.gif)
 
 ## Download
 
