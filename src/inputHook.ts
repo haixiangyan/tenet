@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { TextDocumentContentChangeEvent } from 'vscode';
+import {pickAndInsert} from "./utils/string";
 
 let isEditing = false;
 
@@ -7,12 +8,6 @@ const getWholeRange = (document: vscode.TextDocument): vscode.Range => {
     const firstLine = document.lineAt(0);
     const lastLine = document.lineAt(document.lineCount - 1);
     return new vscode.Range(firstLine.range.start, lastLine.range.end);
-};
-
-export const pickAndInsert = (text: string, pickedText: string, start: number = 1): string => {
-    const end = start + pickedText.length;
-
-    return text.slice(start, end) + text.slice(0, start) + text.slice(end);
 };
 
 const isEmpty = (changes: ReadonlyArray<TextDocumentContentChangeEvent>): boolean => {

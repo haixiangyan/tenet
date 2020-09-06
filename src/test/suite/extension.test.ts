@@ -1,5 +1,5 @@
-import { pickAndInsert } from "../../inputHook";
 import * as assert from "assert";
+import {pickAndInsert} from "../../utils/string";
 
 suite('pickAndInsert', () => {
 	test('can pick middle char and insert into head', () => {
