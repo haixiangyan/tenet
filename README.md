@@ -1,5 +1,7 @@
 # tenet
 
+![](./images/banner.webp)
+
 A VsCode extension for writing code in the **inversion world** (Just like what happens in the **TENET** 🤪).
 
 ## Demo
