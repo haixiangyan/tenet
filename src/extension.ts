@@ -9,7 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 	initCommands(context);
 
 	process.nextTick(() => {
-		initInputHook();
+		initInputHook(context);
 	});
 }
 
